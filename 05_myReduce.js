@@ -12,6 +12,14 @@
     -> 20
 */
 
-const myReduce = (arr, f, init) => {}
+const myReduce = (arr, f, init) => {
+  if(arr.length === 0) {
+    return init;
+  } else {
+    const [first, ...rest] = arr;
+    const updatedAcc = f(init, first);
+    return myReduce(rest, f, updatedAcc);
+  }
+}
 
 module.exports = myReduce
